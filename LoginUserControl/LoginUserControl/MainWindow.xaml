@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginUserControl"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="151" Width="393" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Label Content="User Name:" HorizontalAlignment="Left" Height="39" Margin="19,12,0,0" VerticalAlignment="Top" Width="120" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="39" Margin="157,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Height="39" Margin="19,58,0,0" VerticalAlignment="Top" Width="120" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="39" Margin="157,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
     </Grid>
 </Window>
