@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantBillCalculator", "RestaurantBillCalculator\RestaurantBillCalculator.csproj", "{1ACCD32F-7D0A-4110-AD63-B8A09EA62D6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuRepository", "MenuRepository\MenuRepository.csproj", "{17BF896E-7493-42B9-93F0-7A4B9C6D56E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1ACCD32F-7D0A-4110-AD63-B8A09EA62D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ACCD32F-7D0A-4110-AD63-B8A09EA62D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ACCD32F-7D0A-4110-AD63-B8A09EA62D6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17BF896E-7493-42B9-93F0-7A4B9C6D56E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17BF896E-7493-42B9-93F0-7A4B9C6D56E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17BF896E-7493-42B9-93F0-7A4B9C6D56E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17BF896E-7493-42B9-93F0-7A4B9C6D56E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
