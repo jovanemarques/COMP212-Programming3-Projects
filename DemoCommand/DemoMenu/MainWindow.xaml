@@ -1,0 +1,41 @@
+﻿<Window x:Class="DemoMenu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoMenu"
+        mc:Ignorable="d"
+        Title="Demo Menu" Height="300" Width="400">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem x:Name="menuItemNew" Command="New" />
+                <MenuItem x:Name="menuItemOpen" Command="Open" >
+                    <MenuItem.Icon>
+                        <Image Source=".\Icons\open.bmp"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="Save">
+                    <MenuItem.Icon>
+                        <Image Source=".\Icons\save.bmp"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="SaveAs"/>
+                <Separator />
+                <MenuItem x:Name="menuItemExit" Header="_Exit" Click="MenuItemExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Command="Cut" />
+                <MenuItem Command="ApplicationCommands.Copy" />
+                <MenuItem Command="{x:Static ApplicationCommands.Paste}" />
+            </MenuItem>
+        </Menu>
+        <TextBox AcceptsReturn="True" Name="txtEditor" />
+    </DockPanel>
+    <Window.CommandBindings>
+        <CommandBinding Command="New" CanExecute="menuItemNew_CanExecute"  
+                        Executed="menuItemNew_Executed" />
+        <CommandBinding Command="Open" CanExecute="MenuItemOpen_CanExecute" Executed="MenuItemOpen_Executed" />
+    </Window.CommandBindings>
+</Window>

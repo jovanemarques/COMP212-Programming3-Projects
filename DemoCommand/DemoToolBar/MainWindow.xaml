@@ -1,0 +1,60 @@
+﻿<Window x:Class="DemoToolBar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoToolBar"
+        mc:Ignorable="d"
+        Title="Demo Toolbar" Height="450" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ToolBarTray Grid.Row="0" x:Name="tb" Background="White" VerticalAlignment="Top">
+                <ToolBar>
+                    <Button Command="Cut">
+                        <Image Source=".\Icons\cut.bmp" />
+                    </Button>
+                    <Button Command="Copy">
+                        <Image Source=".\Icons\copy.bmp" />
+                    </Button>
+                    <Button Command="Paste">
+                        <Image Source=".\Icons\paste.bmp" />
+                    </Button>
+                </ToolBar>
+                <ToolBar>
+                    <Button>
+                        <Image Source=".\Icons\undo.bmp" />
+                    </Button>
+                    <Button>
+                        <Image Source=".\Icons\redo.bmp" />
+                    </Button>
+                </ToolBar>
+                <ToolBar>
+                    <Button ToolTip="Save file">
+                        <Image Source=".\Icons\save.bmp" />
+                    </Button>
+                    <Button ToolTip="Open file">
+                        <Image Source=".\Icons\open.bmp" />
+                    </Button>
+                </ToolBar>
+                <ToolBar>
+                    <Label Content="Font size"></Label>
+                    <ComboBox x:Name="fontSizeComboBox" 
+                          SelectionChanged="fontSizeComboBox_SelectionChanged"
+                          DropDownClosed="fontSizeComboBox_DropDownClosed">
+                        <ComboBoxItem>10</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">12</ComboBoxItem>
+                        <ComboBoxItem>14</ComboBoxItem>
+                        <ComboBoxItem>16</ComboBoxItem>
+                    </ComboBox>
+                </ToolBar>
+            </ToolBarTray>
+        </Grid>
+</Window>
