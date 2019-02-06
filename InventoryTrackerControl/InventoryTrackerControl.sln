@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryTrackerControl", "InventoryTrackerControl\InventoryTrackerControl.csproj", "{7F618E7E-4AE2-45F4-9932-6DF311F2E6D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{AB084E5F-67B2-4713-8589-FAE5CAA4CF25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F618E7E-4AE2-45F4-9932-6DF311F2E6D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F618E7E-4AE2-45F4-9932-6DF311F2E6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F618E7E-4AE2-45F4-9932-6DF311F2E6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F618E7E-4AE2-45F4-9932-6DF311F2E6D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB084E5F-67B2-4713-8589-FAE5CAA4CF25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB084E5F-67B2-4713-8589-FAE5CAA4CF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB084E5F-67B2-4713-8589-FAE5CAA4CF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB084E5F-67B2-4713-8589-FAE5CAA4CF25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2BD1433-85A7-473E-A4C2-B87B88F42491}
+	EndGlobalSection
+EndGlobal
