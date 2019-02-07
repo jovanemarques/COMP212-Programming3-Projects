@@ -16,17 +16,48 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <DataGrid x:Name="dgItems" HorizontalAlignment="Left" Height="262" Margin="10,341,0,0" VerticalAlignment="Top" Width="540" FontSize="18"/>
-            <ComboBox x:Name="cbxBeverage" HorizontalAlignment="Left" Height="33" Margin="10,118,0,0" VerticalAlignment="Top" Width="540" FontSize="20"/>
+            <ComboBox x:Name="cbxBeverage" HorizontalAlignment="Left" Height="33" Margin="10,118,0,0" VerticalAlignment="Top" Width="540" FontSize="20" SelectionChanged="combo_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Label Content="Beverage" HorizontalAlignment="Left" Height="33" Margin="10,81,0,0" VerticalAlignment="Top" Width="540" FontSize="18"/>
-            <ComboBox x:Name="cbxMainCourse" HorizontalAlignment="Left" Height="33" Margin="10,192,0,0" VerticalAlignment="Top" Width="540" FontSize="20"/>
+            <ComboBox x:Name="cbxMainCourse" HorizontalAlignment="Left" Height="33" Margin="10,192,0,0" VerticalAlignment="Top" Width="540" FontSize="20" SelectionChanged="combo_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Label Content="Main Course" HorizontalAlignment="Left" Height="33" Margin="10,155,0,0" VerticalAlignment="Top" Width="540" FontSize="18"/>
-            <ComboBox x:Name="cbxAppetizer" HorizontalAlignment="Left" Height="33" Margin="10,46,0,0" VerticalAlignment="Top" Width="540" FontSize="20"/>
+            <ComboBox x:Name="cbxAppetizer" HorizontalAlignment="Left" Height="33" Margin="10,46,0,0" VerticalAlignment="Top" Width="540" FontSize="20" SelectionChanged="combo_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Label Content="Appetizer" HorizontalAlignment="Left" Height="33" Margin="10,9,0,0" VerticalAlignment="Top" Width="540" FontSize="18"/>
-            <ComboBox x:Name="cbxDessert" HorizontalAlignment="Left" Height="33" Margin="10,268,0,0" VerticalAlignment="Top" Width="540" FontSize="20"/>
+            <ComboBox x:Name="cbxDessert" HorizontalAlignment="Left" Height="33" Margin="10,268,0,0" VerticalAlignment="Top" Width="540" FontSize="20" SelectionChanged="combo_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Label Content="Dessert" HorizontalAlignment="Left" Height="33" Margin="10,231,0,0" VerticalAlignment="Top" Width="540" FontSize="18"/>
             <Label Content="Items" HorizontalAlignment="Left" Height="33" Margin="10,303,0,0" VerticalAlignment="Top" Width="540" FontSize="18"/>
-            <Button x:Name="btnAdd" Content="Add Item" Height="33" Margin="34,44,406,0" VerticalAlignment="Top" Grid.Column="1" FontSize="18"/>
-            <Button x:Name="btnClear" Content="Clear Bill" Height="33" Margin="34,118,406,0" VerticalAlignment="Top" Grid.Column="1" FontSize="18"/>
+            <Button x:Name="btnClear" Content="Clear Bill" Height="33" Margin="32,570,408,0" VerticalAlignment="Top" Grid.Column="1" FontSize="18" Click="btnClear_Click"/>
             <RichTextBox x:Name="rtBill" Height="593" Margin="184,10,10,0" VerticalAlignment="Top" Grid.Column="1" FontSize="20" FontFamily="Courier New" IsReadOnly="True">
                 <RichTextBox.Resources>
                     <Style TargetType="{x:Type Paragraph}">

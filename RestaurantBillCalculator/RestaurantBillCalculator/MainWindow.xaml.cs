@@ -1,6 +1,7 @@
 ﻿using MenuRepository;
-using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -12,7 +13,8 @@ namespace RestaurantBillCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Item> items = new ObservableCollection<Item>();
+        //ObservableCollection<Item> items = new ObservableCollection<Item>();
+        ObservableCollection<Item> chosenItems = new ObservableCollection<Item>();
         public MainWindow()
         {
             InitializeComponent();
@@ -20,13 +22,26 @@ namespace RestaurantBillCalculator
             InitRtBill();
 
             InitCombos();
+
+            dgItems.ItemsSource = chosenItems;
         }
 
         private void InitCombos()
         {
             MenuRepository.MenuRepository mr = new MenuRepository.MenuRepository();
-            items = mr.Items;
-            cbxAppetizer.ItemsSource = items;
+
+            IEnumerable<Item> itemsAppetizer = mr.Items.Where(item => item.Category.Equals("Appetizer"));
+            cbxAppetizer.ItemsSource = itemsAppetizer;
+
+            IEnumerable<Item> itemsBeverage = mr.Items.Where(item => item.Category.Equals("Beverage"));
+            cbxBeverage.ItemsSource = itemsBeverage;
+
+            IEnumerable<Item> itemsMainCourse = mr.Items.Where(item => item.Category.Equals("Main Course"));
+            cbxMainCourse.ItemsSource = itemsMainCourse;
+
+            IEnumerable<Item> itemsDessert = mr.Items.Where(item => item.Category.Equals("Dessert"));
+            cbxDessert.ItemsSource = itemsDessert;
+
         }
 
         private void InitRtBill()
@@ -73,6 +88,40 @@ namespace RestaurantBillCalculator
         private void lblCentennial_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.centennialcollege.ca");
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            cbxAppetizer.SelectedIndex = -1;
+            cbxBeverage.SelectedIndex = -1;
+            cbxDessert.SelectedIndex = -1;
+            cbxMainCourse.SelectedIndex = -1;
+        }
+
+        private void combo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            saveItems();
+        }
+
+        private void saveItems()
+        {
+            chosenItems.Clear();
+            if (cbxAppetizer.SelectedIndex >= 0)
+            {
+                chosenItems.Add((MenuRepository.Item)cbxAppetizer.SelectedItem);
+            }
+            if (cbxBeverage.SelectedIndex >= 0)
+            {
+                chosenItems.Add((MenuRepository.Item)cbxBeverage.SelectedItem);
+            }
+            if (cbxMainCourse.SelectedIndex >= 0)
+            {
+                chosenItems.Add((MenuRepository.Item)cbxMainCourse.SelectedItem);
+            }
+            if (cbxDessert.SelectedIndex >= 0)
+            {
+                chosenItems.Add((MenuRepository.Item)cbxDessert.SelectedItem);
+            }
         }
     }
 }
