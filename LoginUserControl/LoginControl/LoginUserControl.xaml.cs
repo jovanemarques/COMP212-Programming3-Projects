@@ -13,7 +13,7 @@ namespace LoginControl
             get { return (string)GetValue(UsernameProperty); }
             set { SetValue(UsernameProperty, value); }
         }
-        public static DependencyProperty UsernameProperty =
+        public readonly static DependencyProperty UsernameProperty =
             DependencyProperty.Register(nameof(Username), typeof(string), typeof(LoginUserControl),
                 new PropertyMetadata("Username"));
         public string Password
@@ -25,16 +25,19 @@ namespace LoginControl
             set
             {
                 SetValue(PasswordProperty, value);
-                txtPassword.Password = value;
             }
         }
-        public static DependencyProperty PasswordProperty =
+        public readonly static DependencyProperty PasswordProperty =
             DependencyProperty.Register(nameof(Password), typeof(string), typeof(LoginUserControl),
-                new PropertyMetadata("Password"));
+                new PropertyMetadata(default(string)));
         public LoginUserControl()
         {
             InitializeComponent();
+        }
 
+        private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            Password = txtPassword.Password; //binding the password
         }
     }
 }

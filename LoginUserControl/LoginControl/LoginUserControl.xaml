@@ -8,7 +8,7 @@
     <Grid>
         <Label Content="Username:" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="147"/>
         <TextBox x:Name="txtUsername" Text="{Binding Username}" HorizontalAlignment="Left" Height="23" Margin="10,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
-        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Width="147" Height="23"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Width="147" Height="23" PasswordChanged="txtPassword_PasswordChanged"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="147"/>
 
     </Grid>

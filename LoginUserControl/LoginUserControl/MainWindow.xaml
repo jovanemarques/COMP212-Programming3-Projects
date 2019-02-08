@@ -11,7 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <LoginControl:LoginUserControl x:Name="ucLogin" Height="146" Margin="10,10,10,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnLogin" Content="Button" HorizontalAlignment="Left" Margin="60,161,0,0" VerticalAlignment="Top" Width="75" Click="btnLogin_Click" Height="20"/>
+        <LoginControl:LoginUserControl x:Name="ucLogin" Height="146" Margin="10,10,10,0" VerticalAlignment="Top" DataContext="{Binding RelativeSource={RelativeSource Self}}"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="60,161,0,0" VerticalAlignment="Top" Width="75" Click="btnLogin_Click" Height="20"/>
     </Grid>
 </Window>

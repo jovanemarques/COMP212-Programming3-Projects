@@ -10,17 +10,21 @@ namespace LoginUserControl
         public MainWindow()
         {
             InitializeComponent();
+            ucLogin.Username = "";
+            ucLogin.Password = "";
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (ucLogin.Username.Equals("jovane") && ucLogin.Password.Equals("123"))
+            string username = "jovane";
+            string password = "123";
+            if (ucLogin.Username.Equals(username) && ucLogin.Password.Equals(password))
             {
-                MessageBox.Show("Login Sucessful");
+                MessageBox.Show("Login Sucessful.");
             }
             else
             {
-                MessageBox.Show("Login Fail");
+                MessageBox.Show($"Login Fail. Expecting: Username '{username}' and password '{password}'");
             }
         }
     }

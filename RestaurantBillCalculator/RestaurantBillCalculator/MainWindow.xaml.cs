@@ -30,16 +30,20 @@ namespace RestaurantBillCalculator
         {
             MenuRepository.MenuRepository mr = new MenuRepository.MenuRepository();
 
-            IEnumerable<Item> itemsAppetizer = mr.Items.Where(item => item.Category.Equals("Appetizer"));
+            IEnumerable<Item> itemsAppetizer = new List<Item>() { new Item { } };
+            itemsAppetizer = mr.Items.Where(item => item.Category.Equals("Appetizer")).ToList<Item>();
             cbxAppetizer.ItemsSource = itemsAppetizer;
 
-            IEnumerable<Item> itemsBeverage = mr.Items.Where(item => item.Category.Equals("Beverage"));
+            IEnumerable<Item> itemsBeverage = new List<Item>() { new Item { } };
+            itemsBeverage = mr.Items.Where(item => item.Category.Equals("Beverage"));
             cbxBeverage.ItemsSource = itemsBeverage;
 
-            IEnumerable<Item> itemsMainCourse = mr.Items.Where(item => item.Category.Equals("Main Course"));
+            IEnumerable<Item> itemsMainCourse = new List<Item>() { new Item { } };
+            itemsMainCourse = mr.Items.Where(item => item.Category.Equals("Main Course"));
             cbxMainCourse.ItemsSource = itemsMainCourse;
 
-            IEnumerable<Item> itemsDessert = mr.Items.Where(item => item.Category.Equals("Dessert"));
+            IEnumerable<Item> itemsDessert = new List<Item>() { new Item { } };
+            itemsDessert = mr.Items.Where(item => item.Category.Equals("Dessert"));
             cbxDessert.ItemsSource = itemsDessert;
 
         }
@@ -100,15 +104,22 @@ namespace RestaurantBillCalculator
 
         private void combo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            saveItems();
+            
         }
 
-        private void saveItems()
+        private void cbxAppetizer_DropDownClosed(object sender, System.EventArgs e)
         {
-            chosenItems.Clear();
             if (cbxAppetizer.SelectedIndex >= 0)
             {
-                chosenItems.Add((MenuRepository.Item)cbxAppetizer.SelectedItem);
+                IEnumerable<Item> items = chosenItems.Where(item => item.Equals(cbxAppetizer.SelectedItem));
+                if (items.Count() > 0)
+                {
+                    items.ElementAt(0).Quantity++; //TODO: grid is not updating, check it
+                }
+                else
+                {
+                    chosenItems.Add((MenuRepository.Item)cbxAppetizer.SelectedItem);
+                }
             }
             if (cbxBeverage.SelectedIndex >= 0)
             {
@@ -123,5 +134,26 @@ namespace RestaurantBillCalculator
                 chosenItems.Add((MenuRepository.Item)cbxDessert.SelectedItem);
             }
         }
+
+        //private void saveItems()
+        //{
+        //    //chosenItems.Clear();
+        //    if (cbxAppetizer.SelectedIndex >= 0)
+        //    {
+        //        chosenItems.Add((MenuRepository.Item)cbxAppetizer.SelectedItem);
+        //    }
+        //    if (cbxBeverage.SelectedIndex >= 0)
+        //    {
+        //        chosenItems.Add((MenuRepository.Item)cbxBeverage.SelectedItem);
+        //    }
+        //    if (cbxMainCourse.SelectedIndex >= 0)
+        //    {
+        //        chosenItems.Add((MenuRepository.Item)cbxMainCourse.SelectedItem);
+        //    }
+        //    if (cbxDessert.SelectedIndex >= 0)
+        //    {
+        //        chosenItems.Add((MenuRepository.Item)cbxDessert.SelectedItem);
+        //    }
+        //}
     }
 }

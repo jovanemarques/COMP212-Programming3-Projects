@@ -36,7 +36,7 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Label Content="Main Course" HorizontalAlignment="Left" Height="33" Margin="10,155,0,0" VerticalAlignment="Top" Width="540" FontSize="18"/>
-            <ComboBox x:Name="cbxAppetizer" HorizontalAlignment="Left" Height="33" Margin="10,46,0,0" VerticalAlignment="Top" Width="540" FontSize="20" SelectionChanged="combo_SelectionChanged">
+            <ComboBox x:Name="cbxAppetizer" HorizontalAlignment="Left" Height="33" Margin="10,46,0,0" VerticalAlignment="Top" Width="540" FontSize="20" SelectionChanged="combo_SelectionChanged" DropDownClosed="cbxAppetizer_DropDownClosed">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
