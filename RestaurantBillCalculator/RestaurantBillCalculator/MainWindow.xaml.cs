@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 
@@ -107,32 +108,64 @@ namespace RestaurantBillCalculator
             
         }
 
-        private void cbxAppetizer_DropDownClosed(object sender, System.EventArgs e)
+        private void cbx_DropDownClosed(object sender, System.EventArgs e)
         {
-            if (cbxAppetizer.SelectedIndex >= 0)
+            ComboBox cbx = (ComboBox)sender;
+            if (cbx.SelectedIndex >= 0)
             {
-                IEnumerable<Item> items = chosenItems.Where(item => item.Equals(cbxAppetizer.SelectedItem));
+                IEnumerable<Item> items = chosenItems.Where(item => item.Equals(cbx.SelectedItem));
                 if (items.Count() > 0)
                 {
-                    items.ElementAt(0).Quantity++; //TODO: grid is not updating, check it
+                    items.ElementAt(0).Quantity++;
                 }
                 else
                 {
-                    chosenItems.Add((MenuRepository.Item)cbxAppetizer.SelectedItem);
+                    ((MenuRepository.Item)cbx.SelectedItem).Quantity = 1;
+                    chosenItems.Add((MenuRepository.Item)cbx.SelectedItem);
                 }
             }
-            if (cbxBeverage.SelectedIndex >= 0)
-            {
-                chosenItems.Add((MenuRepository.Item)cbxBeverage.SelectedItem);
-            }
-            if (cbxMainCourse.SelectedIndex >= 0)
-            {
-                chosenItems.Add((MenuRepository.Item)cbxMainCourse.SelectedItem);
-            }
-            if (cbxDessert.SelectedIndex >= 0)
-            {
-                chosenItems.Add((MenuRepository.Item)cbxDessert.SelectedItem);
-            }
+            //if (cbx.SelectedIndex >= 0)
+            //{
+            //    IEnumerable<Item> items = chosenItems.Where(item => item.Equals(cbx.SelectedItem));
+            //    if (items.Count() > 0)
+            //    {
+            //        items.ElementAt(0).Quantity++;
+            //    }
+            //    else
+            //    {
+            //        ((MenuRepository.Item)cbx.SelectedItem).Quantity = 1;
+            //        chosenItems.Add((MenuRepository.Item)cbx.SelectedItem);
+            //    }
+            //}
+            //if (cbx.SelectedIndex >= 0)
+            //{
+            //    IEnumerable<Item> items = chosenItems.Where(item => item.Equals(cbx.SelectedItem));
+            //    if (items.Count() > 0)
+            //    {
+            //        items.ElementAt(0).Quantity++;
+            //    }
+            //    else
+            //    {
+            //        ((MenuRepository.Item)cbx.SelectedItem).Quantity = 1;
+            //        chosenItems.Add((MenuRepository.Item)cbx.SelectedItem);
+            //    }
+            //}
+            //if (cbx.SelectedIndex >= 0)
+            //{
+            //    IEnumerable<Item> items = chosenItems.Where(item => item.Equals(cbx.SelectedItem));
+            //    if (items.Count() > 0)
+            //    {
+            //        items.ElementAt(0).Quantity++;
+            //    }
+            //    else
+            //    {
+            //        ((MenuRepository.Item)cbx.SelectedItem).Quantity = 1;
+            //        chosenItems.Add((MenuRepository.Item)cbx.SelectedItem);
+            //    }
+            //}
+            //updating the grid
+            dgItems.ItemsSource = null;
+            dgItems.ItemsSource = chosenItems;
         }
 
         //private void saveItems()
