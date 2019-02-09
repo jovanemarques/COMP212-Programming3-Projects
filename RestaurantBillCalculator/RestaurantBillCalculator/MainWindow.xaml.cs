@@ -62,8 +62,22 @@ namespace RestaurantBillCalculator
 
             PrintOnBill("-----------------------------", Position.CENTER);
 
-            PrintOnBill(" Units Desc Price Total ", Position.LEFT);
+            PrintOnBill("Un   Descr\t Price\t Total ", Position.LEFT);
+            PrintOnBill("", Position.CENTER);
 
+            double subTotal = 0;
+            foreach (Item item in chosenItems)
+            {
+                PrintOnBill(item.Quantity + "   " + (item.Name.Length > 6 ? item.Name.Substring(0, 6) : item.Name) + "." + "\t " + item.Price + "\t " +
+                    item.Total, Position.LEFT);
+                subTotal += (double)item.Total;
+            }
+            double subTotalTax = subTotal * (0.15);
+            double totalTax = subTotal * (1.15);
+            PrintOnBill("", Position.CENTER);
+            PrintOnBill("SubTotal: " + subTotal , Position.LEFT);
+            PrintOnBill("Total Tax (15%): " + subTotalTax, Position.LEFT);
+            PrintOnBill("Total Bill: " + totalTax, Position.LEFT);
             PrintOnBill("=============================", Position.CENTER);
             PrintOnBill("", Position.CENTER);
             PrintOnBill("Thank You!", Position.CENTER);
@@ -74,19 +88,18 @@ namespace RestaurantBillCalculator
         private void PrintOnBill(string text, Position pos)
         {
             int lineSize = 30;// line break for font type courier new
-            if (pos.Equals(Position.LEFT))
-            {
-                // not necessary
-                //rtBill.AppendText(text.PadRight(lineSize, ' ') + "\r\n");
-            }
-            else if (pos.Equals(Position.RIGHT))
+            if (pos.Equals(Position.RIGHT))
             {
                 rtBill.AppendText(text.PadLeft(lineSize, ' ') + "\r\n");
             }
-            else //CENTER
+            else if (pos.Equals(Position.CENTER))
             {
                 rtBill.AppendText(text.PadLeft(lineSize - ((lineSize - text.Length) / 2), ' ')
                     .PadRight(lineSize, ' ') + "\r\n");
+            }
+            else // LEFT
+            {
+                rtBill.AppendText(text + "\r\n");
             }
         }
 
@@ -101,11 +114,10 @@ namespace RestaurantBillCalculator
             cbxBeverage.SelectedIndex = -1;
             cbxDessert.SelectedIndex = -1;
             cbxMainCourse.SelectedIndex = -1;
-        }
 
-        private void combo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            
+            chosenItems.Clear();
+
+            rtBill.Document.Blocks.Clear();
         }
 
         private void cbx_DropDownClosed(object sender, System.EventArgs e)
@@ -124,69 +136,11 @@ namespace RestaurantBillCalculator
                     chosenItems.Add((MenuRepository.Item)cbx.SelectedItem);
                 }
             }
-            //if (cbx.SelectedIndex >= 0)
-            //{
-            //    IEnumerable<Item> items = chosenItems.Where(item => item.Equals(cbx.SelectedItem));
-            //    if (items.Count() > 0)
-            //    {
-            //        items.ElementAt(0).Quantity++;
-            //    }
-            //    else
-            //    {
-            //        ((MenuRepository.Item)cbx.SelectedItem).Quantity = 1;
-            //        chosenItems.Add((MenuRepository.Item)cbx.SelectedItem);
-            //    }
-            //}
-            //if (cbx.SelectedIndex >= 0)
-            //{
-            //    IEnumerable<Item> items = chosenItems.Where(item => item.Equals(cbx.SelectedItem));
-            //    if (items.Count() > 0)
-            //    {
-            //        items.ElementAt(0).Quantity++;
-            //    }
-            //    else
-            //    {
-            //        ((MenuRepository.Item)cbx.SelectedItem).Quantity = 1;
-            //        chosenItems.Add((MenuRepository.Item)cbx.SelectedItem);
-            //    }
-            //}
-            //if (cbx.SelectedIndex >= 0)
-            //{
-            //    IEnumerable<Item> items = chosenItems.Where(item => item.Equals(cbx.SelectedItem));
-            //    if (items.Count() > 0)
-            //    {
-            //        items.ElementAt(0).Quantity++;
-            //    }
-            //    else
-            //    {
-            //        ((MenuRepository.Item)cbx.SelectedItem).Quantity = 1;
-            //        chosenItems.Add((MenuRepository.Item)cbx.SelectedItem);
-            //    }
-            //}
-            //updating the grid
-            dgItems.ItemsSource = null;
-            dgItems.ItemsSource = chosenItems;
-        }
+          }
 
-        //private void saveItems()
-        //{
-        //    //chosenItems.Clear();
-        //    if (cbxAppetizer.SelectedIndex >= 0)
-        //    {
-        //        chosenItems.Add((MenuRepository.Item)cbxAppetizer.SelectedItem);
-        //    }
-        //    if (cbxBeverage.SelectedIndex >= 0)
-        //    {
-        //        chosenItems.Add((MenuRepository.Item)cbxBeverage.SelectedItem);
-        //    }
-        //    if (cbxMainCourse.SelectedIndex >= 0)
-        //    {
-        //        chosenItems.Add((MenuRepository.Item)cbxMainCourse.SelectedItem);
-        //    }
-        //    if (cbxDessert.SelectedIndex >= 0)
-        //    {
-        //        chosenItems.Add((MenuRepository.Item)cbxDessert.SelectedItem);
-        //    }
-        //}
+        private void btnGenerateInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            InitRtBill();
+        }
     }
 }

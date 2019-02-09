@@ -4,40 +4,56 @@ namespace MenuRepository
 {
     public class Item : INotifyPropertyChanged
     {
+        private string name;
         public string Name
         {
-            get { return Name; }
+            get { return name; }
             set
             {
-                Name = value;
-                OnPropertyChanged("Name");
+                if (name != value)
+                {
+                    name = value;
+                    OnPropertyChanged("Name");
+                }
             }
         }
+        private string category;
         public string Category
         {
-            get { return Category; }
+            get { return category; }
             set
             {
-                Category = value;
-                OnPropertyChanged("Category");
+                if (category != value)
+                {
+                    category = value;
+                    OnPropertyChanged("Category");
+                }
             }
         }
+        private decimal price;
         public decimal Price
         {
-            get { return Price; }
+            get { return price; }
             set
             {
-                Price = value;
-                OnPropertyChanged("Price");
+                if (price != value)
+                {
+                    price = value;
+                    OnPropertyChanged("Price");
+                }
             }
         }
+        private int quantity;
         public int Quantity
         {
-            get { return Quantity; }
+            get { return quantity; }
             set
             {
-                Quantity = value;
-                OnPropertyChanged("Quantity");
+                if (quantity != value)
+                {
+                    quantity = value;
+                    OnPropertyChanged("Quantity");
+                }
             }
         }
 
@@ -46,6 +62,13 @@ namespace MenuRepository
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+        public decimal Total
+        {
+            get
+            {
+                return this.quantity * this.Price;
             }
         }
 

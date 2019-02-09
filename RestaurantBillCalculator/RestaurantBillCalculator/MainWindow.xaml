@@ -68,6 +68,7 @@
                     <DropShadowEffect/>
                 </RichTextBox.Effect>
             </RichTextBox>
+            <Button x:Name="btnGenerateInvoice" Content="Generate Invoice" Height="33" Margin="32,530,408,0" VerticalAlignment="Top" Grid.Column="1" FontSize="18" Click="btnGenerateInvoice_Click"/>
         </Grid>
         <DockPanel>
             <StatusBar DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
