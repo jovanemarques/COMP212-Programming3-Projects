@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Q3DbCreation", "Assignment3\Q3DbCreation.csproj", "{DEAE45BE-3ACA-4546-8ED7-BBE871B69494}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Q3BookLib", "Q3BookLib\Q3BookLib.csproj", "{EFCFB0EC-688D-446D-BFED-609B8FF05585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Q3DbShow", "Q3DbShow\Q3DbShow.csproj", "{49AAF92F-557C-475D-8EAB-DF903FBD7BB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEAE45BE-3ACA-4546-8ED7-BBE871B69494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEAE45BE-3ACA-4546-8ED7-BBE871B69494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEAE45BE-3ACA-4546-8ED7-BBE871B69494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEAE45BE-3ACA-4546-8ED7-BBE871B69494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFCFB0EC-688D-446D-BFED-609B8FF05585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFCFB0EC-688D-446D-BFED-609B8FF05585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFCFB0EC-688D-446D-BFED-609B8FF05585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFCFB0EC-688D-446D-BFED-609B8FF05585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49AAF92F-557C-475D-8EAB-DF903FBD7BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49AAF92F-557C-475D-8EAB-DF903FBD7BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49AAF92F-557C-475D-8EAB-DF903FBD7BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49AAF92F-557C-475D-8EAB-DF903FBD7BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FAA6F955-926E-4C27-A557-0FB8D1A4558A}
+	EndGlobalSection
+EndGlobal
