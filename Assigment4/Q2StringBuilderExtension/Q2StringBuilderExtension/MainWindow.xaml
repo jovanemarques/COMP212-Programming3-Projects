@@ -1,0 +1,16 @@
+﻿<Window x:Class="Q2StringBuilderExtension.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Q2StringBuilderExtension"
+        mc:Ignorable="d"
+        Title="StringBuilder Extension" Height="255.201" Width="765.268" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Topmost="True">
+    <Grid>
+        <TextBox x:Name="txtString" HorizontalAlignment="Left" Height="64" Margin="41,36,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="684"/>
+        <Label Content="Input the text to be counted:" HorizontalAlignment="Left" Margin="41,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCount" Content="Count" HorizontalAlignment="Left" Height="34" Margin="41,105,0,0" VerticalAlignment="Top" Width="100" Click="btnCount_Click"/>
+        <Label x:Name="lblResult" Content="Label" HorizontalAlignment="Left" Margin="41,144,0,0" VerticalAlignment="Top" Height="70" Width="684"/>
+
+    </Grid>
+</Window>
