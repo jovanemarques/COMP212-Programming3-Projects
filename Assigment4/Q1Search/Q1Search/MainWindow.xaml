@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Q1Search"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Button x:Name="btnGenerate" Content="Generate Random Arrays" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="167" Height="36" Click="btnGenerate_Click"/>
+        <Label x:Name="lblInts" Content="Array of Ints" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Width="772" Height="66" Foreground="Black"/>
+        <Label x:Name="lblDouble" Content="Array of Doubles" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="772" Height="66"/>
+        <TextBox x:Name="txtNumber" HorizontalAlignment="Left" Height="36" Margin="201,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="466"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="672,9,0,0" Height="37"/>
+        <Label x:Name="lblResult" Content="Result" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" Width="772" Height="66"/>
+
     </Grid>
 </Window>
