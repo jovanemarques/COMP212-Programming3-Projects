@@ -94,24 +94,24 @@ namespace FlickrViewer
                 //BEGIN OF THE CODE TO RESIZE AND SAVE
                 //JOVANE MARQUES - 300982100
 
-                FlickrResult[] enu = flickrPhotos.ToArray();
-                if (enu != null)
+                FlickrResult[] results = flickrPhotos.ToArray();
+                if (results != null)
                 {
                     // fixing to 10 interactions in parallel in order not to have too much images being saved
                     ParallelLoopResult result = Parallel.For(0, 10, async (int i, ParallelLoopState p) =>
                     {
-                        if (i < enu.Length)
+                        if (i < results.Length)
                         {
-                            string url = ((FlickrResult)enu[i]).URL;
+                            string url = ((FlickrResult)results[i]).URL;
 
                             byte[] imgbytes = await flickrClient.GetByteArrayAsync(url);
                             using (var stream = new MemoryStream(imgbytes))
                             {
                                 var image = Image.FromStream(stream);
-                                var width = 200;
+                                var width = 200; //new size
                                 var height = (width * image.Height) / image.Width;
                                 var smallimg = image.GetThumbnailImage(width, height, null, IntPtr.Zero);
-                                smallimg.Save("IMG" + i + ".jpg", ImageFormat.Jpeg);
+                                smallimg.Save("IMG" + i + ".jpg", ImageFormat.Jpeg);// saving
                             }
                         }
                     });
