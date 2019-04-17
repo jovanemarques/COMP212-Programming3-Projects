@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Test"
+             x:Class="Test.MainPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Master" Padding="15">
+            <ContentPage.Content>
+                <StackLayout Margin="10">
+                    <Label Text="Enter Flickr search tags:"/>
+                    <Entry Text="" x:Name="entTags"/>
+                    <Button Text="Search" x:Name="btnSearch" Clicked="btnSearch_Clicked"/>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <ContentPage Title="Content" Padding="15">
+            <ContentPage.Content>
+                <StackLayout Margin="10">
+                    <!--<local:FlickrList/>-->
+                    <!--<Label Text="Welcome to the flickr master detail app" VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand" FontSize="Large"/>-->
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>
