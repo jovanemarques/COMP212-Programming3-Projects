@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ParallelExample": {
+      "commandName": "Project",
+      "commandLineArgs": "pf"
+    }
+  }
+}
